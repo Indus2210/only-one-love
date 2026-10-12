@@ -26,75 +26,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ---------- фон: две фотографии рядом, с лёгким наложением ---------- */
-  .photos {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
-  .photos img {
-    display: block;
-    object-fit: cover;
-    opacity: 0.8;
-    filter: saturate(0.85) contrast(0.95);
-    -webkit-mask-image: radial-gradient(ellipse closest-side, #000 62%, transparent 100%);
-            mask-image: radial-gradient(ellipse closest-side, #000 62%, transparent 100%);
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  .photos .left  { height: 58vh; aspect-ratio: 16 / 9; margin-top: -14vh; position: relative; left: -24vw; }
-  .photos .right {
-    height: 84vh; aspect-ratio: 3 / 4; margin-left: -16vh; margin-top: 8vh;
-    animation-delay: -9s;
-  }
-
-  /* крошечные размытые превью — видны сразу, пока грузится фото */
-  .photos picture { display: contents; }
-  .photos .left  { background: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAAWACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCxoWtWkGoWnnvtWNdp+XPITb/WutTxPo0hI+1BW9GUg143JePDcZUr/FioxeSO4BCjvuxQ27ko63xQ8I1CXUITHskYlZo+pIwRknuParptppLMahLg3csS3HnsPmZj06dABjFef3F2DC8WMlgCD6e1dhbatNY+EbaSaKKZzHtVXHO3PHIqW5I2jyvdHoem3UVzaW8jzRmYqN2MA7u/FFcBoV9FcW8b3F9FbXiuSEIxn0/L60VbkYctjlNOy93JgKWbgbhnBzS6iZkWWNp2O0+WygYBFFFJbmiVzGcYfGc44rUsLq5lg+xtJmFRwGGcc9BRRSlsEdxL3LOG6HJxRRRSjsOW5//Z") center / cover no-repeat; }
-  .photos .right { background: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAAoAB4DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDoNPtY4UMiklmUDLAdKh1bTxew7lA89B8vGNw9K0i0aBVVsgAVnzamkV4YnQeUG2F93IOM9PSu9WitTz7Sk7o5FNOd4DKWAOTuUjBX61RBCTFVweOtdrp0Fq1tJqV8kZaZzIDJ91V6Dg8dqp2VhFqWv3kuzbA6hkzECeMAYB6D/wCtWTikWpGnDqFldK7W8gkKKCRgjFUbyGSTfNCgDsM4J4z61DptkbDTpN2WkkwTlSvHYc/55q+7SBtpC5Y7cCrkuZBCXI3Yym1CO6Nvp0my2aM+Wxc7gMcfrW9papbSNbIGCQgohJySMKf61w17DI+v3VurBd0hIJ9MZrUXUpodSlZOMqAck4ztUf0rGMld3NJXcfI37hHygRAI0IyMcdOgprSvvVinfmiitXK0rGUYJx5mQjSGuLtrh1MCOACQvzvj37CrEPh3T0kJ8mRiR1dyaKKaitwcnsf/2Q==") center / cover no-repeat; }
-
-  @keyframes drift {
-    from { transform: translateY(-6px); }
-    to   { transform: translateY(6px); }
-  }
-
-  /* лёгкая вуаль, чтобы фото не спорили с текстом */
-  .veil {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(ellipse at center, rgba(252,245,242,0.35) 0%, rgba(252,245,242,0.12) 60%, rgba(252,245,242,0) 100%);
-  }
-
-  /* на узких/вертикальных экранах — фото друг под другом */
-  /* на телефоне (вертикальный экран) — фото отдельным коллажем над стихом */
-  @media (max-aspect-ratio: 1/1) {
-    .photos {
-      position: relative;
-      inset: auto;
-      z-index: 0;
-      display: block;
-      padding-top: 5vh;
-      overflow: hidden;
-    }
-    .photos img {
-      opacity: 0.95;
-      -webkit-mask-image: radial-gradient(ellipse closest-side, #000 72%, transparent 100%);
-              mask-image: radial-gradient(ellipse closest-side, #000 72%, transparent 100%);
-    }
-    .photos .left  { height: auto; width: 104vw; margin: 0 0 0 -8vw; left: 0; }
-    .photos .right {
-      position: relative;
-      z-index: 1;
-      height: auto; width: 66vw;
-      margin: -20vw 2vw 0 auto;
-    }
-    body main { padding-top: 0; margin-top: -4vw; position: relative; }
-  }
-
   /* ---------- текст ---------- */
   main {
     min-height: 100vh;
@@ -159,115 +90,12 @@
     .stanza { font-size: 1.07rem; line-height: 1.75; }
   }
 
-  /* ---------- окно с вопросом ---------- */
-  body.locked { overflow: hidden; }
-
-  .lock {
-    position: fixed;
-    inset: 0;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    background: rgba(248, 238, 235, 0.92);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    transition: opacity 1.2s ease, visibility 1.2s;
-  }
-  .lock.open { opacity: 0; visibility: hidden; }
-
-  .lock-card {
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    padding: 44px 32px 40px;
-    background: rgba(255, 251, 249, 0.85);
-    border-radius: 28px;
-    box-shadow: 0 30px 80px -40px rgba(120, 80, 90, 0.45);
-  }
-
-  .lock-card .ornament { margin-bottom: 24px; }
-
-  .question {
-    font-size: 1.55rem;
-    line-height: 1.4;
-    font-weight: 500;
-    font-style: italic;
-    margin-bottom: 30px;
-  }
-
-  .digits {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
-  .digits input {
-    width: 52px;
-    height: 62px;
-    text-align: center;
-    font: 500 1.8rem "Cormorant Garamond", Georgia, serif;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(201, 154, 166, 0.45);
-    border-radius: 14px;
-    outline: none;
-    caret-color: var(--accent);
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  .digits input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(201, 154, 166, 0.18);
-  }
-
-  .hint {
-    min-height: 1.4em;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--ink-soft);
-  }
-
-  .shake { animation: shake 0.45s ease; }
-  @keyframes shake {
-    20%, 60% { transform: translateX(-7px); }
-    40%, 80% { transform: translateX(7px); }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .photos img { animation: none; }
     .stanza { opacity: 1; transform: none; transition: none; }
-    .shake { animation: none; }
   }
 </style>
 </head>
-<body class="locked">
-  <div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="question">
-    <form class="lock-card" id="lockForm" autocomplete="off">
-      <div class="ornament">~ ♡ ~</div>
-      <p class="question" id="question">Тот самый день с&nbsp;первым «спишь?»</p>
-      <div class="digits">
-        <input inputmode="numeric" maxlength="1" aria-label="Цифра 1">
-        <input inputmode="numeric" maxlength="1" aria-label="Цифра 2">
-        <input inputmode="numeric" maxlength="1" aria-label="Цифра 3">
-        <input inputmode="numeric" maxlength="1" aria-label="Цифра 4">
-      </div>
-      <p class="hint" id="hint" aria-live="polite"></p>
-    </form>
-  </div>
-
-  <div class="photos" aria-hidden="true">
-    <picture>
-      <source media="(max-aspect-ratio: 1/1)" srcset="L-m.jpg">
-      <img class="left" src="L.jpg" alt="" fetchpriority="high" decoding="async">
-    </picture>
-    <picture>
-      <source media="(max-aspect-ratio: 1/1)" srcset="o-m.jpg">
-      <img class="right" src="o.jpg" alt="" fetchpriority="high" decoding="async">
-    </picture>
-  </div>
-  <div class="veil"></div>
-
+<body>
   <main>
     <article class="poem" id="poem">
       <div class="ornament">~ ♡ ~</div>
@@ -275,45 +103,7 @@
   </main>
 
 <script>
-  const text = `Он для неё готов был звёзды с неба снять,
-Дороже всех сокровищ и миров,
-Он сердце ей носил, как дети — тетрадь,
-Не требуя ни клятв, ни лишних слов.
-
-Он шёл к ней через холод и дожди,
-Искал слова, что греют, а не жгут.
-Она шептала: «Подожди... не приходи...»
-И закрывала дверь на ржавый крюк.
-
-А он сидел в ночи, смотря в окно,
-И задавал один и тот же вопрос:
-«За что нам это? Ведь должно быть легко,
-Когда огонь так искренне пророс?»
-
-Ведь были дни — смеялись до утра,
-И солнце отражалось в их глазах.
-Она держала за руку... вчера.
-Но прячет свет в зашторенных стенах.
-
-Она сидит в той «маленькой комнате»,
-Где тихо, безопасно и темно.
-Боится, что за дверью — не поймёт,
-Что за порогом — слишком глубоко.
-
-Боится, что откроет — и вдохнёт
-То чувство, что сильнее, чем она.
-И рухнут стены, и произойдёт
-То, что не выдержит её броня.
-
-Но если ты не выйдешь — не узнать,
-Как пахнет небо, если рядом он.
-Не выйдешь — не почувствуешь опять,
-Как сердце бьётся в унисон.
-
-А он всё ждёт. И верит. И горит.
-И в тишине рисует её смех.
-Он двери не ломает — он хранит
-Надежду, что однажды хватит сил у всех.`;
+  const text = `Понравилось? Тогда скажи для чего всё это`;
 
   const poem = document.getElementById('poem');
   const stanzas = text.trim().split(/\n\s*\n/);
@@ -348,61 +138,8 @@
     document.querySelectorAll('.stanza').forEach(el => io.observe(el));
   }
 
-  /* ---------- вопрос ---------- */
-  const lock = document.getElementById('lock');
-  const form = document.getElementById('lockForm');
-  const hint = document.getElementById('hint');
-  const inputs = [...form.querySelectorAll('input')];
-  const ANSWER = '2006';
+  revealPoem();
 
-  inputs[0].focus();
-
-  function check() {
-    const code = inputs.map(i => i.value).join('');
-    if (code.length < 4) return;
-    if (code === ANSWER) {
-      inputs.forEach(i => i.blur());
-      hint.textContent = '♡';
-      lock.classList.add('open');
-      document.body.classList.remove('locked');
-      setTimeout(revealPoem, 500);
-      setTimeout(() => lock.remove(), 1400);
-    } else {
-      hint.textContent = 'Не тот день… попробуй ещё раз';
-      form.classList.remove('shake');
-      void form.offsetWidth;
-      form.classList.add('shake');
-      setTimeout(() => {
-        inputs.forEach(i => i.value = '');
-        inputs[0].focus();
-      }, 450);
-    }
-  }
-
-  inputs.forEach((input, idx) => {
-    input.addEventListener('input', () => {
-      input.value = input.value.replace(/\D/g, '').slice(-1);
-      if (input.value && idx < 3) inputs[idx + 1].focus();
-      check();
-    });
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Backspace' && !input.value && idx > 0) {
-        inputs[idx - 1].value = '';
-        inputs[idx - 1].focus();
-        e.preventDefault();
-      }
-    });
-    input.addEventListener('paste', e => {
-      const digits = (e.clipboardData.getData('text') || '').replace(/\D/g, '').slice(0, 4);
-      if (!digits) return;
-      e.preventDefault();
-      digits.split('').forEach((d, k) => { if (inputs[k]) inputs[k].value = d; });
-      inputs[Math.min(digits.length, 3)].focus();
-      check();
-    });
-  });
-
-  form.addEventListener('submit', e => { e.preventDefault(); check(); });
 </script>
 </body>
 </html>
